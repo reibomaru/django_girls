@@ -55,12 +55,7 @@ def post_draft_list(request):
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
-    return redirect('post_detail', {'post': post})
-
-
-def publish(self):
-    self.published_date = timezone.now()
-    self.save()
+    return redirect('post_detail', pk=pk)
 
 
 def post_remove(request, pk):
